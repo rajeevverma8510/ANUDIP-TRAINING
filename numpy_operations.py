@@ -119,3 +119,75 @@ np.random.shuffle(mat)
 print(mat)
 print(np.unique(mat,return_index=True,return_counts=True))
 print(np.unique(mat).size)
+#np.transpose is used to transpose or permute the dimensions of an array. It swaps rows and columns.
+mat=np.array([1,2,3,4,5,6])
+print(np.transpose(mat))
+# search the index of a value 
+search = np.searchsorted(mat,4)
+print(search)
+print("***********split***************")
+#np.split()
+arr= np.array([1,2,3,4,5,6])
+sub_array=np.split(arr,3)
+for sub_arr in sub_array:
+    print(sub_arr)
+print("************")
+#Splitting with Specified Indices:
+arr = np.array([1, 2, 3, 4, 5, 6])
+sub_arrays = np.split(arr, [2, 4])
+for sub_arr in sub_arrays:
+    print(sub_arr)
+print("*******************")
+#Splitting Along Different Axis (Columns):
+matrix = np.array([[1, 2, 3],
+[4, 5, 6]])
+sub_matrices = np.split(matrix, 3, axis=1)
+for sub_matrix in sub_matrices:
+ print(sub_matrix)
+print("****************************")
+# concatenating along rows (vertical concatenation):
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6]])
+# Concatenate arr1 and arr2 along rows (vertical)
+result = np.concatenate((arr1, arr2), axis=0)
+print(result)
+print("******************************")
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5], [6]])
+# Concatenate arr1 and arr2 along columns (horizontal)
+result = np.concatenate((arr1, arr2), axis=1)
+print(result)
+print("***********")
+#np.vstack
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+# Stack arr1 and arr2 vertically
+result = np.vstack((arr1, arr2))
+print(result)
+print("*************************")
+#np.hstack
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+# Stack arr1 and arr2 vertically
+result = np.hstack((arr1, arr2))
+print(result)
+# Calculate the Mean First, you calculate the mean (average) scores for each class.   
+classA= np.array([85, 88, 90, 92, 95])
+classA_mean=np.mean(classA)
+print('Class A Score Average',classA_mean )
+vari = np.var(classA)
+print("class a variance is ",vari)
+std=np.std(classA)
+print("class a variance is ",std)
+print("**************************")
+#percentile
+test_scores = np.array([65, 75, 80, 85, 90, 92, 94, 95, 96, 98, 100, 102, 104, 106, 108,
+110, 112, 114, 116, 118, 120, 122, 124, 126, 128, 130, 132, 134, 136, 138])
+median = np.percentile(test_scores, 50)
+print(median)
+#Saving and Loading NumPy Arrays
+scores = np.array([85, 92, 78, 88, 95, 72, 89])
+np.save('student_scores.npy', scores)
+loaded_scores = np.load('student_scores.npy')
+print("Original Scores:", scores)
+print("Loaded Scores:", loaded_scores)
